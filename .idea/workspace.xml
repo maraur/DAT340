@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb61649f-7baa-49ea-a818-ab3fde6afa28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assignment 2/Classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment 2/Classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment 2/a2_train_final.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment 2/a2_train_final.tsv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,13 +13,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assignment 2/Classifier.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assignment 4/assignment4/assignment4/doc_classification.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+              <folding>
+                <element signature="e#1#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assignment 4/assignment4/assignment4/aml_perceptron.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="181" column="119" selection-start-line="181" selection-start-column="119" selection-end-line="181" selection-end-column="119" />
+              <folding>
+                <element signature="e#533#551#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -33,6 +58,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>fit</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -42,14 +72,15 @@
         <option value="$PROJECT_DIR$/Assignment 0/step1.py" />
         <option value="$PROJECT_DIR$/Assignment 0/task3.py" />
         <option value="$PROJECT_DIR$/Assignment 2/Classifier.py" />
+        <option value="$PROJECT_DIR$/Assignment 4/assignment4/assignment4/doc_classification.py" />
+        <option value="$PROJECT_DIR$/Assignment 4/assignment4/assignment4/aml_perceptron.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="413" />
-    <option name="y" value="-10" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -74,6 +105,24 @@
               <item name="DAT340" type="462c0819:PsiDirectoryNode" />
               <item name="Assignment 2" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DAT340" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DAT340" type="462c0819:PsiDirectoryNode" />
+              <item name="Assignment 4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DAT340" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DAT340" type="462c0819:PsiDirectoryNode" />
+              <item name="Assignment 4" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DAT340" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DAT340" type="462c0819:PsiDirectoryNode" />
+              <item name="Assignment 4" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment4" type="462c0819:PsiDirectoryNode" />
+              <item name="assignment4" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -81,7 +130,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Brexit-prediction" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -110,10 +159,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-6" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09319233" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18951613" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -156,6 +205,26 @@
           <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment 4/assignment4/assignment4/doc_classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+          <folding>
+            <element signature="e#1#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assignment 4/assignment4/assignment4/aml_perceptron.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="181" column="119" selection-start-line="181" selection-start-column="119" selection-end-line="181" selection-end-column="119" />
+          <folding>
+            <element signature="e#533#551#0" expanded="true" />
           </folding>
         </state>
       </provider>
