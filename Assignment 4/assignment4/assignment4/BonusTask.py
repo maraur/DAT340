@@ -38,13 +38,17 @@ class LinearClassifier(BaseEstimator):
 
         # First compute the output scores
         scores = self.decision_function(X)
+        print(scores.shape)
+        A = []
+        for row in scores:
+            A.append(np.argmax(row))
 
         # Select the positive or negative class label, depending on whether
         # the score was positive or negative.
-        out = np.select([scores >= 0.0, scores < 0.0],
-                        [self.positive_class,
-                         self.negative_class])
+        out = self.decode_multi_outputs(A)
         return out
+
+
 
     def find_classes(self, Y):
         """
@@ -65,7 +69,37 @@ class LinearClassifier(BaseEstimator):
         """
         return np.array([1 if y == self.positive_class else -1 for y in Y])
 
+    def find_number_of_classes(self, Y):
+        i = 0
+        classes = sorted(set(Y))
+        for c in classes:
+            print(c, "has number", i)
+            i += 1
+        return len(classes)
 
+    def encode_multi_outputs(self, Y):
+        switcher = {
+            "books": 0,
+            "camera": 1,
+            "dvd": 2,
+            "health": 3,
+            "music": 4,
+            "software": 5
+        }
+        Ye = list(map(switcher.get, Y))
+        return Ye
+
+    def decode_multi_outputs(self, Y):
+        switcher = {
+            0: "books",
+            1: "camera",
+            2: "dvd",
+            3: "health",
+            4: "music",
+            5: "software"
+        }
+        Yd = list(map(switcher.get, Y))
+        return Yd
 ##### The following part is for the optional task.
 
 ### Sparse and dense vectors don't collaborate very well in NumPy/SciPy.
@@ -104,7 +138,7 @@ class MultiClassSVM(LinearClassifier):
         """
         self.n_iter = n_iter
 
-    def fit(self, X, Y, lmbd=0.0001):
+    def fit(self, X, Y, lmbd=0.001):
         """
         Train a linear classifier using the pegasos learning algorithm.
         """
@@ -112,11 +146,11 @@ class MultiClassSVM(LinearClassifier):
 
         # First determine which output class will be associated with positive
         # and negative scores, respectively.
-        self.find_classes(Y)
-
+        #self.find_classes(Y)
+        classNumber = self.find_number_of_classes(Y)
         # Convert all outputs to +1 (for the positive class) or -1 (negative).
-        Ye = self.encode_outputs(Y)
-
+        #Ye = self.encode_outputs(Y)
+        Ye = self.encode_multi_outputs(Y)
         # If necessary, convert the sparse matrix returned by a vectorizer
         # into a normal NumPy matrix.
         if not isinstance(X, np.ndarray):
@@ -124,17 +158,27 @@ class MultiClassSVM(LinearClassifier):
 
         # Initialize the weight vector to all zeros.
         n_features = X.shape[1]
-        self.w = np.zeros(n_features)
+        self.w = np.zeros((n_features, classNumber))
 
         L = list(zip(X, Ye))
-        # Pegasos Log algorithm:
+
         for i in range(self.n_iter):
             #for x, y in zip(X, Ye):
             x, y = random.choice(L)
             t = i + 1
             lr = 1/(t*self.RegPar)
-
             # Compute the output score for this instance.
-            score = x.dot(self.w)
-            subGrad = (y/(1 + np.exp(y * score))) * x
-            self.w = (1 - lr * self.RegPar) * self.w + lr * subGrad
+            scoreYi = x.dot(self.w[:, y])
+            A = []
+            for j in range(classNumber):
+                scoreY = x.dot(self.w[:, j])
+                if y == j:
+                    A.append(0 - scoreYi + scoreY)
+                else:
+                    A.append(1 - scoreYi + scoreY)
+            yHat = np.argmax(A)
+            m1 = np.zeros((n_features, classNumber))
+            m2 = np.zeros((n_features, classNumber))
+            m1[:, yHat] = x
+            m2[:, y] = x
+            self.w = (1 - lr * self.RegPar) * self.w - lr * (m1 - m2)

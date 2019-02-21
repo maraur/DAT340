@@ -9,6 +9,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.multiclass import OneVsOneClassifier, OneVsRestClassifier
 
+from BonusTask import MultiClassSVM
 from aml_perceptron import Perceptron, SparsePerceptron, PegasosHinge, PegasosLog
 
 # This function reads the corpus, returns a list of documents, and a list
@@ -42,7 +43,8 @@ if __name__ == '__main__':
         #PegasusLog()   #For Log implementation
         #PegasusHinge() #For Hinge implementation
         # Best performing for multiclass
-        OneVsOneClassifier(PegasosLog())
+        #OneVsOneClassifier(PegasosLog())
+        MultiClassSVM()
     )
 
     # Train the classifier.
