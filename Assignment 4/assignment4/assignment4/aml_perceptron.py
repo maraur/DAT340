@@ -183,21 +183,20 @@ class SparsePerceptron(LinearClassifier):
 -----------------------------------------------------------------------------------------------------------------------"""
 
 
-class Pegasos(LinearClassifier):
+class PegasosHinge(LinearClassifier):
     """
-    A straightforward implementation of the perceptron learning algorithm.
+    An implementation of the pegasos learning algorithm with Hinge loss.
     """
 
     def __init__(self, n_iter=100000):
         """
-        The constructor can optionally take a parameter n_iter specifying how
-        many times we want to iterate through the training set.
+        The constructor can optionally take a parameter n_iter specifying many pair to train on.
         """
         self.n_iter = n_iter
 
     def fit(self, X, Y, lmbd=0.0001):
         """
-        Train a linear classifier using the pegasos learning algorithm.
+        Train a linear classifier using the pegasos learning algorithm with Hinge loss.
         """
         self.RegPar = lmbd
 
@@ -218,9 +217,8 @@ class Pegasos(LinearClassifier):
         self.w = np.zeros(n_features)
 
         L = list(zip(X, Ye))
-        # Pegasos algorithm:
+        # Pegasos Hinge algorithm:
         for i in range(self.n_iter):
-            #for x, y in zip(X, Ye):
             x, y = random.choice(L)
             t = i + 1
             lr = 1/(t*self.RegPar)
@@ -231,6 +229,52 @@ class Pegasos(LinearClassifier):
             # If there was an error, update the weights.
             if y * score < 1:
                 self.w = (1 - lr * self.RegPar) * self.w + (lr * y) * x
-
             else:
                 self.w = (1 - lr * self.RegPar) * self.w
+
+
+class PegasosLog(LinearClassifier):
+    """
+    An implementation of the pegasos learning algorithm with Log loss.
+    """
+
+    def __init__(self, n_iter=100000):
+        """
+        The constructor can optionally take a parameter n_iter specifying many pair to train on.
+        """
+        self.n_iter = n_iter
+
+    def fit(self, X, Y, lmbd=0.0001):
+        """
+        Train a linear classifier using the pegasos learning algorithm with Log loss.
+        """
+        self.RegPar = lmbd
+
+        # First determine which output class will be associated with positive
+        # and negative scores, respectively.
+        self.find_classes(Y)
+
+        # Convert all outputs to +1 (for the positive class) or -1 (negative).
+        Ye = self.encode_outputs(Y)
+
+        # If necessary, convert the sparse matrix returned by a vectorizer
+        # into a normal NumPy matrix.
+        if not isinstance(X, np.ndarray):
+            X = X.toarray()
+
+        # Initialize the weight vector to all zeros.
+        n_features = X.shape[1]
+        self.w = np.zeros(n_features)
+
+        L = list(zip(X, Ye))
+        # Pegasos Log algorithm:
+        for i in range(self.n_iter):
+            x, y = random.choice(L)
+            t = i + 1
+            lr = 1/(t*self.RegPar)
+
+            # Compute the output score for this instance.
+            score = x.dot(self.w)
+            subGrad = (y/(1 + np.exp(y * score))) * x
+            self.w = (1 - lr * self.RegPar) * self.w + lr * subGrad
+

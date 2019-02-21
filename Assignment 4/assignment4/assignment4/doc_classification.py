@@ -7,8 +7,9 @@ from sklearn.pipeline import make_pipeline
 from sklearn.feature_selection import SelectKBest
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
+from sklearn.multiclass import OneVsOneClassifier, OneVsRestClassifier
 
-from aml_perceptron import Perceptron, SparsePerceptron, Pegasos
+from aml_perceptron import Perceptron, SparsePerceptron, PegasosHinge, PegasosLog
 
 # This function reads the corpus, returns a list of documents, and a list
 # of their corresponding polarity labels. 
@@ -17,7 +18,7 @@ def read_data(corpus_file):
     Y = []
     with open(corpus_file, encoding='utf-8') as f:
         for line in f:
-            _, y, _, x = line.split(maxsplit=3)
+            y, _, _, x = line.split(maxsplit=3)
             X.append(x.strip())
             Y.append(y)
     return X, Y
@@ -27,7 +28,7 @@ if __name__ == '__main__':
     
     # Read all the documents.
     X, Y = read_data('data/all_sentiment_shuffled.txt')
-    
+
     # Split into training and test parts.
     Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.2,
                                                     random_state=0)
@@ -38,8 +39,10 @@ if __name__ == '__main__':
         SelectKBest(k=1000),
         Normalizer(),
 
-        # NB that this is our Perceptron, not sklearn.linear_model.Perceptron
-        Pegasos()
+        #PegasusLog()   #For Log implementation
+        #PegasusHinge() #For Hinge implementation
+        # Best performing for multiclass
+        OneVsOneClassifier(PegasosLog())
     )
 
     # Train the classifier.
@@ -51,4 +54,3 @@ if __name__ == '__main__':
     # Evaluate on the test set.
     Yguess = pipeline.predict(Xtest)
     print('Accuracy: {:.4f}.'.format(accuracy_score(Ytest, Yguess)))
-
