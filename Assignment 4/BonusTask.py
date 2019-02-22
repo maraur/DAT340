@@ -13,6 +13,7 @@ of documents.
 import numpy as np
 from sklearn.base import BaseEstimator
 import random
+import scipy as sp
 
 class LinearClassifier(BaseEstimator):
     """
@@ -38,7 +39,6 @@ class LinearClassifier(BaseEstimator):
 
         # First compute the output scores
         scores = self.decision_function(X)
-        print(scores.shape)
         A = []
         for row in scores:
             A.append(np.argmax(row))
@@ -47,8 +47,6 @@ class LinearClassifier(BaseEstimator):
         # the score was positive or negative.
         out = self.decode_multi_outputs(A)
         return out
-
-
 
     def find_classes(self, Y):
         """
@@ -163,7 +161,6 @@ class MultiClassSVM(LinearClassifier):
         L = list(zip(X, Ye))
 
         for i in range(self.n_iter):
-            #for x, y in zip(X, Ye):
             x, y = random.choice(L)
             t = i + 1
             lr = 1/(t*self.RegPar)
@@ -182,3 +179,58 @@ class MultiClassSVM(LinearClassifier):
             m1[:, yHat] = x
             m2[:, y] = x
             self.w = (1 - lr * self.RegPar) * self.w - lr * (m1 - m2)
+
+
+
+class MultiClassLR(LinearClassifier):
+    """
+    A straightforward implementation of the perceptron learning algorithm.
+    """
+
+    def __init__(self, n_iter=100000):
+        """
+        The constructor can optionally take a parameter n_iter specifying how
+        many times we want to iterate through the training set.
+        """
+        self.n_iter = n_iter
+
+    def fit(self, X, Y, lmbd=0.01):
+        """
+        Train a linear classifier using the pegasos learning algorithm.
+        """
+        self.RegPar = lmbd
+
+        # First determine which output class will be associated with positive
+        # and negative scores, respectively.
+        #self.find_classes(Y)
+        classNumber = self.find_number_of_classes(Y)
+        # Convert all outputs to +1 (for the positive class) or -1 (negative).
+        #Ye = self.encode_outputs(Y)
+        Ye = self.encode_multi_outputs(Y)
+        # If necessary, convert the sparse matrix returned by a vectorizer
+        # into a normal NumPy matrix.
+        if not isinstance(X, np.ndarray):
+            X = X.toarray()
+
+        # Initialize the weight vector to all zeros.
+        n_features = X.shape[1]
+        self.w = np.zeros((n_features, classNumber))
+
+        L = list(zip(X, Ye))
+
+        for i in range(self.n_iter):
+            x, y = random.choice(L)
+            t = i + 1
+            lr = 1/(t*self.RegPar)
+            # Compute the output score for this instance.
+            scores = x.dot(self.w)
+            subGrad = np.zeros((n_features, classNumber))
+            p = sp.special.softmax(scores)
+            phi2 = np.zeros((n_features, classNumber))
+            phi2[:, y] = x
+            for r in range(classNumber):
+                phi1 = np.zeros((n_features, classNumber))
+                phi1[:, r] = x
+                subGrad += p * phi1 - phi2
+                
+            self.w = (1 - lr * self.RegPar) * self.w - lr * subGrad
