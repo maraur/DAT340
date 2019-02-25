@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb61649f-7baa-49ea-a818-ab3fde6afa28" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assignment 4/BonusTask.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment 4/BonusTask.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment 4/aml_perceptron.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment 4/aml_perceptron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment 4/doc_classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment 4/doc_classification.py" afterDir="false" />
-    </list>
+    <list default="true" id="cb61649f-7baa-49ea-a818-ab3fde6afa28" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +22,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assignment 4/BonusTask.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="-1348">
               <caret line="125" selection-start-line="125" selection-end-line="125" />
             </state>
           </provider>
@@ -147,7 +143,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.38400528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -226,7 +221,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assignment 4/BonusTask.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="-1348">
           <caret line="125" selection-start-line="125" selection-end-line="125" />
         </state>
       </provider>
