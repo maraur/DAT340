@@ -19,7 +19,8 @@ def read_data(corpus_file):
     Y = []
     with open(corpus_file, encoding='utf-8') as f:
         for line in f:
-            y, _, _, x = line.split(maxsplit=3)
+            _, y, _, x = line.split(maxsplit=3) # For binary classification
+            #y, _, _, x = line.split(maxsplit=3) # For multi-class classification
             X.append(x.strip())
             Y.append(y)
     return X, Y
@@ -40,11 +41,14 @@ if __name__ == '__main__':
         SelectKBest(k=1000),
         Normalizer(),
 
-        #PegasusLog()   #For Log implementation
-        #PegasusHinge() #For Hinge implementation
-        # Best performing for multiclass
+        PegasosLog()   #For binary Log implementation
+        #PegasosHinge() #For binary Hinge implementation
+        #OneVsRestClassifier(PegasosLog())
+        #OneVsRestClassifier(PegasosHinge())
         #OneVsOneClassifier(PegasosLog())
-        MultiClassLR()
+        #OneVsOneClassifier(PegasosHinge())
+        #MultiClassSVM()
+        #MultiClassLR()
     )
 
     # Train the classifier.
