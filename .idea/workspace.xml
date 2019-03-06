@@ -13,8 +13,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assignment 4/aml_perceptron.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-719">
-              <caret line="188" column="58" lean-forward="true" selection-start-line="188" selection-start-column="58" selection-end-line="188" selection-end-column="58" />
+            <state relative-caret-position="3162">
+              <caret line="188" column="58" selection-start-line="188" selection-start-column="58" selection-end-line="188" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -22,7 +22,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assignment 4/BonusTask.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1348">
+            <state relative-caret-position="17">
               <caret line="125" selection-start-line="125" selection-end-line="125" />
             </state>
           </provider>
@@ -31,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assignment 4/doc_classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+            <state relative-caret-position="476">
+              <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
               <folding>
                 <element signature="e#1#12#0" expanded="true" />
               </folding>
@@ -83,7 +83,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -110,10 +109,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Brexit-prediction" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TDA206" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -144,7 +144,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.38400528" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.38400528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -194,34 +194,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/assignment4/assignment4/aml_perceptron.py">
+    <entry file="file://$USER_HOME$/Downloads/assignment4/assignment4/aml_perceptron.py" />
+    <entry file="file://$USER_HOME$/Downloads/assignment4/assignment4/doc_classification.py" />
+    <entry file="file://$PROJECT_DIR$/Assignment 4/aml_perceptron.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-459" />
+        <state relative-caret-position="3162">
+          <caret line="188" column="58" selection-start-line="188" selection-start-column="58" selection-end-line="188" selection-end-column="58" />
+        </state>
       </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/assignment4/assignment4/doc_classification.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Assignment 4/doc_classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+        <state relative-caret-position="476">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
           <folding>
             <element signature="e#1#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assignment 4/aml_perceptron.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-719">
-          <caret line="188" column="58" lean-forward="true" selection-start-line="188" selection-start-column="58" selection-end-line="188" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assignment 4/BonusTask.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1348">
+        <state relative-caret-position="17">
           <caret line="125" selection-start-line="125" selection-end-line="125" />
         </state>
       </provider>
